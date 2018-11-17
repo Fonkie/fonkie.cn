@@ -5,15 +5,22 @@
   
 
   
-  <title>Action speaks louder than words!</title>
+  <title>网站服务迁移引起的nginx转发错误 | Action speaks louder than words!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Action speaks louder than words!">
-<meta property="og:url" content="http://fonkie.cn/index.html">
+  <meta name="description" content="由于机器裁撤，网站服务www.a.com需要由机器x迁移到机器y，在迁移的过程中，发现访问www.a.com，得到始终是网站www.b.com的内容，why? 问题排查追踪nginx错误日志显示，请求http://www.a.com/被www.b.com的nginx配置命中1234root@...:/usr/local/nginx/logs# tail -f error.log2018/11/01">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站服务迁移引起的nginx转发错误">
+<meta property="og:url" content="http://fonkie.cn/2018/11/17/nginx-http-server-listen/index.html">
 <meta property="og:site_name" content="Action speaks louder than words!">
+<meta property="og:description" content="由于机器裁撤，网站服务www.a.com需要由机器x迁移到机器y，在迁移的过程中，发现访问www.a.com，得到始终是网站www.b.com的内容，why? 问题排查追踪nginx错误日志显示，请求http://www.a.com/被www.b.com的nginx配置命中1234root@...:/usr/local/nginx/logs# tail -f error.log2018/11/01">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://fonkie.cn/images/nginx-http-server-listen.png">
+<meta property="og:image" content="http://fonkie.cn/images/nginx-http-listen-2.png">
+<meta property="og:updated_time" content="2018-11-17T11:04:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Action speaks louder than words!">
+<meta name="twitter:title" content="网站服务迁移引起的nginx转发错误">
+<meta name="twitter:description" content="由于机器裁撤，网站服务www.a.com需要由机器x迁移到机器y，在迁移的过程中，发现访问www.a.com，得到始终是网站www.b.com的内容，why? 问题排查追踪nginx错误日志显示，请求http://www.a.com/被www.b.com的nginx配置命中1234root@...:/usr/local/nginx/logs# tail -f error.log2018/11/01">
+<meta name="twitter:image" content="http://fonkie.cn/images/nginx-http-server-listen.png">
   
     <link rel="alternate" href="/atom.xml" title="Action speaks louder than words!" type="application/atom+xml">
   
@@ -60,9 +67,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-nginx-http-server-listen" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-nginx-http-server-listen" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/17/nginx-http-server-listen/" class="article-date">
   <time datetime="2018-11-17T11:04:15.000Z" itemprop="datePublished">2018-11-17</time>
@@ -75,8 +80,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/17/nginx-http-server-listen/">网站服务迁移引起的nginx转发错误</a>
+    <h1 class="article-title" itemprop="name">
+      网站服务迁移引起的nginx转发错误
     </h1>
   
 
@@ -111,11 +116,9 @@
     </footer>
   </div>
   
-</article>
-
-
+    
   
-
+</article>
 
 </section>
         
