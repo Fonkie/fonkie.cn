@@ -67,12 +67,11 @@ nginx使用block(如 `server block`, `location block`)来组织配置文件，�
 listen 10.yyy.yyy.230:80;
 listen 127.0.0.1:80;
 listen 80;
-listen 8081;
 ```
 如果匹配到多个`ip:port`，nginx将会继续检查`server_name`。
 
 **测试案例**
-
+`ip`,`port`,`server_name`三者优先级顺序分析
 ```
 server {
     listen       192.168.8.81:80;
