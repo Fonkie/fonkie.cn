@@ -62,10 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-nginx-http-server-listen" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-go-to-a-line-number-at-a-specific-column" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/17/nginx-http-server-listen/" class="article-date">
-  <time datetime="2018-11-17T11:04:15.000Z" itemprop="datePublished">2018-11-17</time>
+    <a href="/2018/11/28/go-to-a-line-number-at-a-specific-column/" class="article-date">
+  <time datetime="2018-11-28T07:37:23.000Z" itemprop="datePublished">2018-11-28</time>
 </a>
     
   </div>
@@ -76,7 +76,46 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/17/nginx-http-server-listen/">网站服务迁移引起的nginx转发错误</a>
+      <a class="article-title" href="/2018/11/28/go-to-a-line-number-at-a-specific-column/">Go to a line number at a specific column</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>GOTO a line number with a specified column using the format :linenumber:columnnumber in the CMD+O dialogue from the Sources panel editor.</p>
+<p>Hit CMD + O from the Sources Panel with an open file<br>Enter :5:9<br>Notice you are taken to line 5, column 9!</p>
+<p>Original：<br><a href="https://developers.google.com/web/updates/2015/05/go-to-a-line-number-at-a-specific-column&quot;Go to a line number at a specific column&quot;" target="_blank" rel="noopener">Go to a line number at a specific column</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fonkie.cn/2018/11/28/go-to-a-line-number-at-a-specific-column/" data-id="cjp0uy7yz0000tis9hf8jlv3w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nginx-http-server-listen" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/19/nginx-http-server-listen/" class="article-date">
+  <time datetime="2018-11-19T01:54:56.000Z" itemprop="datePublished">2018-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/19/nginx-http-server-listen/">网站服务迁移引起的nginx转发错误</a>
     </h1>
   
 
@@ -92,10 +131,9 @@
 <p><strong>原因分析</strong></p>
 <p>网站配置文件<code>www.a.com.conf</code>从机器x，搬迁到机器y，不同的机器nginx其他网站服务配置风格不一致，机器10.xxx.xxx.15：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>而机器10.yyy.yyy.230：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 10.yyy.yyy.230:80;</span><br><span class="line">        ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>nginx使用block(如 <code>server block</code>, <code>location block</code>)来组织配置文件，在接收客户端请求之后会根据请求的domain，port，ip判断处理该请求的<code>server block</code>，然后根据请求的资源和URI决定处理该请求的<code>location block</code>。<br>一般nginx会有多个<code>server block</code>，每个<code>server block</code>中的<code>listen</code>定义了这个<code>server block</code>能处理的ip和port。nginx首先检查请求的ip和port，并按照优先级找出与之匹配的<code>server block</code>。<br>当端口相同时，listen的定义优先级从高到低排列如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">listen 10.yyy.yyy.230:80;</span><br><span class="line">listen 127.0.0.1:80;</span><br><span class="line">listen 80;</span><br><span class="line">listen 8081;</span><br></pre></td></tr></table></figure></p>
+<p>nginx使用block(如 <code>server block</code>, <code>location block</code>)来组织配置文件，在接收客户端请求之后会根据请求的domain，port，ip判断处理该请求的<code>server block</code>，然后根据请求的资源和URI决定处理该请求的<code>location block</code>。<br>一般nginx会有多个<code>server block</code>，每个<code>server block</code>中的<code>listen</code>定义了这个<code>server block</code>能处理的ip和port。nginx首先检查请求的ip和port，并按照优先级找出与之匹配的<code>server block</code>。<br>当端口相同时，listen的定义优先级从高到低排列如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">listen 10.yyy.yyy.230:80;</span><br><span class="line">listen 127.0.0.1:80;</span><br><span class="line">listen 80;</span><br></pre></td></tr></table></figure></p>
 <p>如果匹配到多个<code>ip:port</code>，nginx将会继续检查<code>server_name</code>。</p>
-<p><strong>测试案例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       192.168.8.81:80;</span><br><span class="line">    server_name  vae.test1.com *.test1.com;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test1 &#123;</span><br><span class="line">       root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       127.0.0.1:80;</span><br><span class="line">    server_name  vae.test1.com *.test1.com;&lt;!--hosts文件配置的地址--&gt;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test1 &#123;</span><br><span class="line">       root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  vae.test1.com;&lt;!--hosts文件配置的地址--&gt;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test1 &#123;</span><br><span class="line">       root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  vae.test2.com;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test2 &#123;</span><br><span class="line">        root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       8081;</span><br><span class="line">    server_name  vae.test3.com;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test3 &#123;</span><br><span class="line">        root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>测试案例</strong><br><code>ip</code>,<code>port</code>,<code>server_name</code>三者优先级顺序分析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       192.168.8.81:80;</span><br><span class="line">    server_name  vae.test1.com *.test1.com;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test1 &#123;</span><br><span class="line">       root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       127.0.0.1:80;</span><br><span class="line">    server_name  vae.test1.com *.test1.com;&lt;!--hosts文件配置的地址--&gt;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test1 &#123;</span><br><span class="line">       root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  vae.test1.com;&lt;!--hosts文件配置的地址--&gt;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test1 &#123;</span><br><span class="line">       root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  vae.test2.com;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test2 &#123;</span><br><span class="line">        root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       8081;</span><br><span class="line">    server_name  vae.test3.com;</span><br><span class="line">    index index.html;</span><br><span class="line">    location /test3 &#123;</span><br><span class="line">        root /usr/local/nginx/html/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>host配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.8.81 vae.test1.com</span><br><span class="line">192.168.8.81 vae.test2.com</span><br><span class="line">192.168.8.81 vae.test3.com</span><br></pre></td></tr></table></figure></p>
 <p>ngx_http_add_listen 函数将解析http中的server的地址和端口，以port为粒度，添加addr（即1.1.1.1:80、2.2.2.2:80和80，会放在相同的cmcf-&gt;port[i]中）。<br>时序图和数据结构关系图：<br><img src="/images/nginx-http-server-listen.png" alt=""></p>
 <p>那么在cmcf中的存储例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">listen 192.168.8.81:80;</span><br><span class="line">listen 127.0.0.1:80;</span><br><span class="line">listen 80;</span><br><span class="line">listen 80;</span><br><span class="line">listen 8081;</span><br></pre></td></tr></table></figure></p>
@@ -105,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fonkie.cn/2018/11/17/nginx-http-server-listen/" data-id="cjolc306y00007os9juqiou9i" class="article-share-link">Share</a>
+      <a data-url="http://fonkie.cn/2018/11/19/nginx-http-server-listen/" data-id="cjolc306y00007os9juqiou9i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,7 +184,11 @@
       <ul>
         
           <li>
-            <a href="/2018/11/17/nginx-http-server-listen/">网站服务迁移引起的nginx转发错误</a>
+            <a href="/2018/11/28/go-to-a-line-number-at-a-specific-column/">Go to a line number at a specific column</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/19/nginx-http-server-listen/">网站服务迁移引起的nginx转发错误</a>
           </li>
         
       </ul>
